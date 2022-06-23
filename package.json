@@ -1,0 +1,22 @@
+{
+  "name": "js-object-cache",
+  "version": "0.0.1",
+  "description": "Simple no dependency prototype based object cache for js with",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BolverBlitz/js-object-cache.git"
+  },
+  "keywords": [
+    "Cache"
+  ],
+  "author": "Bolverblitz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BolverBlitz/js-object-cache/issues"
+  },
+  "homepage": "https://github.com/BolverBlitz/js-object-cache#readme"
+}
