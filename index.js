@@ -102,6 +102,40 @@ const CacheEngine = {
         }
     },
     /**
+     * Creates a flow that will automaticly keep the set length to store a array of objects or values
+     * @param {String} key_name
+     * @param {Number} length
+     * @param {Array} value_name
+     * @returns {Array}
+     */
+    create_flow(key_name, length, data = []) {
+        const entry = {
+            data: data,
+            length: length,
+        }
+        this.set(key_name, entry);
+    },
+    /**
+     * Store value to array if lenth is reached delete first value
+     * @param {String} key_name 
+     * @param {String | Number} data 
+     * @returns 
+     */
+    set_flow(key_name, data) {
+        this.store[key_name].data.push(data);
+        if (this.store[key_name].data.length > this.store[key_name].length) {
+            this.store[key_name].data.shift();
+        }
+    },
+    /**
+     * Returns the stored array
+     * @param {String} key_name
+     * @returns {Array}
+     */
+    get_flow(key_name) {
+        return this.store[key_name].data;
+    },
+    /**
      * Will calculate the rough size in bytes of the cached data
      * @returns {Number}
      */

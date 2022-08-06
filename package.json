@@ -1,6 +1,6 @@
 {
   "name": "js-object-cache",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Simple no dependency prototype based object cache for js with",
   "main": "index.js",
   "scripts": {
