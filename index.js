@@ -113,7 +113,15 @@ const CacheEngine = {
             data: data,
             length: length,
         }
-        this.set(key_name, entry);
+        this.set(`${key_name}_flow`, entry);
+    },
+    /**
+     * Changes if a flow is stored
+     * @param {String} key_name
+     * @returns {Boolean}
+     */
+    has_flow(key_name) {
+        return this.store.hasOwnProperty(`${key_name}_flow`);
     },
     /**
      * Store value to array if lenth is reached delete first value
@@ -122,9 +130,9 @@ const CacheEngine = {
      * @returns 
      */
     set_flow(key_name, data) {
-        this.store[key_name].data.push(data);
-        if (this.store[key_name].data.length > this.store[key_name].length) {
-            this.store[key_name].data.shift();
+        this.store[`${key_name}_flow`].data.push(data);
+        if (this.store[`${key_name}_flow`].data.length > this.store[`${key_name}_flow`].length) {
+            this.store[`${key_name}_flow`].data.shift();
         }
     },
     /**
@@ -133,7 +141,7 @@ const CacheEngine = {
      * @returns {Array}
      */
     get_flow(key_name) {
-        return this.store[key_name].data;
+        return this.store[`${key_name}_flow`].data;
     },
     /**
      * Will calculate the rough size in bytes of the cached data
