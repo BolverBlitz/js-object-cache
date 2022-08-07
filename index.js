@@ -1,4 +1,4 @@
-class GuesserWrapper {
+class CacheEngine {
     constructor(ageapi_url, landapi_url, genderapi_url) {
         this.store = {}
     }
