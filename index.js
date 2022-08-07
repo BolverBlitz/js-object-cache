@@ -175,4 +175,4 @@ class CacheEngine {
     }
 }
 
-module.exports = GuesserWrapper;
+module.exports = CacheEngine;
