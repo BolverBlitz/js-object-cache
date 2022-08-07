@@ -1,5 +1,7 @@
-const CacheEngine = {
-    store: {},
+class GuesserWrapper {
+    constructor(ageapi_url, landapi_url, genderapi_url) {
+        this.store = {}
+    }
     /**
      * Request a value from the cache
      * @param {String} key 
@@ -7,7 +9,7 @@ const CacheEngine = {
      */
     get(key) {
         return this.store[key];
-    },
+    }
     /**
      * Set a value in the cache
      * @param {String} key 
@@ -16,7 +18,7 @@ const CacheEngine = {
      */
     set(key, value) {
         this.store[key] = value;
-    },
+    }
     /**
      * Deletes a key from the cache
      * @param {String} key 
@@ -24,7 +26,7 @@ const CacheEngine = {
      */
     delete(key) {
         delete this.store[key];
-    },
+    }
     /**
      * Checks if the key is stored
      * @param {String} key 
@@ -32,7 +34,7 @@ const CacheEngine = {
      */
     has(key) {
         return this.store.hasOwnProperty(key);
-    },
+    }
     /**
      * Will log the requested key to console
      * @param {String} key 
@@ -40,42 +42,42 @@ const CacheEngine = {
      */
     log(key) {
         console.log(this.store[key]);
-    },
+    }
     /**
      * Clears all data
      * @returns {void}
      */
     clear() {
         this.store = {};
-    },
+    }
     /**
      * Returns all keys
      * @returns {Array}
      */
     keys() {
         return Object.keys(this.store);
-    },
+    }
     /**
      * Returns all values
      * @returns {Array}
      */
     values() {
         return Object.values(this.store);
-    },
+    }
     /**
      * Returns all entrys
      * @returns {Array}
      */
     entries() {
         return Object.entries(this.store);
-    },
+    }
     /**
      * Returns the amount of stored keys
      * @returns {Number}
      */
     count() {
         return Object.keys(this.store).length;
-    },
+    }
     /**
      * Stores one variable of a array of objects
      * @param {String} key_name
@@ -87,7 +89,7 @@ const CacheEngine = {
         for (let i = 0; i < data.length; i++) {
             this.set(data[i][key_name], data[i][value_name]);
         }
-    },
+    }
     /**
      * Stores a array of objects
      * @param {String} key_name 
@@ -100,7 +102,7 @@ const CacheEngine = {
             delete data[i][key_name];
             this.set(key_name_store, data[i]);
         }
-    },
+    }
     /**
      * Creates a flow that will automaticly keep the set length to store a array of objects or values
      * @param {String} key_name
@@ -114,7 +116,7 @@ const CacheEngine = {
             length: length,
         }
         this.set(`${key_name}_flow`, entry);
-    },
+    }
     /**
      * Changes if a flow is stored
      * @param {String} key_name
@@ -122,7 +124,7 @@ const CacheEngine = {
      */
     has_flow(key_name) {
         return this.store.hasOwnProperty(`${key_name}_flow`);
-    },
+    }
     /**
      * Store value to array if lenth is reached delete first value
      * @param {String} key_name 
@@ -134,7 +136,7 @@ const CacheEngine = {
         if (this.store[`${key_name}_flow`].data.length > this.store[`${key_name}_flow`].length) {
             this.store[`${key_name}_flow`].data.shift();
         }
-    },
+    }
     /**
      * Returns the stored array
      * @param {String} key_name
@@ -142,7 +144,7 @@ const CacheEngine = {
      */
     get_flow(key_name) {
         return this.store[`${key_name}_flow`].data;
-    },
+    }
     /**
      * Will calculate the rough size in bytes of the cached data
      * @returns {Number}
@@ -173,4 +175,4 @@ const CacheEngine = {
     }
 }
 
-module.exports = CacheEngine;
+module.exports = GuesserWrapper;
